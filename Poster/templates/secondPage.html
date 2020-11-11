@@ -1,0 +1,35 @@
+{% extends 'homeUser.html' %}
+
+{% block content %}
+{% for p in postcheck %}
+
+<div class="container bcontent">
+
+        <hr />
+        <div class="card" >
+            <div class="row no-gutters">
+                <div class="col-sm-5">
+                {% if p.poster %}
+                <img class="card-img" src="{{ p.poster.url }}">
+                {% endif %}
+
+
+
+                </div>
+                <div class="col-sm-7">
+                    <div class="card-body">
+                        <h5 class="card-title">{{p.movieId.name}}</h5>
+
+                        <p class="card-text">{{p.movieId.description}}</p>
+
+                         <p class="card-text">{{p.movieId.ratings}} <i class="fa fa-star"></i></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endfor %}
+
+{% endblock %}

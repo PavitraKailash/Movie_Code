@@ -1,0 +1,32 @@
+{% extends 'home.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+    <h2> Add Movies </h2>
+    <form method="post" action="{% url 'addMovie' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-6">
+                {{ movieForm.name|as_crispy_field }}
+            </div>
+        <div class="col-6">
+                {{ movieForm.ratings|as_crispy_field }}
+        </div>
+        <div class="col-6">
+        <br>
+                {{ posterForm.poster|as_crispy_field }}
+        </div>
+        <br>
+        <br>
+         {{ movieForm.description|as_crispy_field }}
+    </div>
+    <div class="row">
+    <br>
+        <button type="submit" class="button" style="margin-left:450px"> Add Movie </button>
+   </div>
+    </form>
+
+</div>
+{% endblock%}
